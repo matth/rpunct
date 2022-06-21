@@ -15,7 +15,7 @@ class RestorePuncts:
         self.overlap_wrds = 30
         self.valid_labels = ['OU', 'OO', '.O', '!O', ',O', '.U', '!U', ',U', ':O', ';O', ':U', "'O", '-O', '?O', '?U']
         self.model = NERModel("bert", "felflare/bert-restore-punctuation", labels=self.valid_labels,
-                              args={"silent": True, "max_seq_length": 512})
+                              args={"silent": True, "max_seq_length": 512}, use_cuda=False)
 
     def punctuate(self, text: str, lang:str=''):
         """
